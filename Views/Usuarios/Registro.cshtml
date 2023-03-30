@@ -1,0 +1,39 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer localizer
+
+@model RegistroViewModel
+
+@{
+    ViewData["Title"] = "Registro";
+}
+
+<div class="login">
+    <h1>@localizer["Registrarme"]</h1>
+
+    <div class="card w-50">
+        <div class="card-body">
+            <form asp-action="Registro">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <div class="mb-3">
+                    <label asp-for="Email" class="form-label"></label>
+                    <input asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Password" class="form-label"></label>
+                    <input asp-for="Password" class="form-control"/>
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+
+                <button class="btn btn-primary">@localizer["Registrarme"]</button>
+                <a class="btn btn-success" asp-action="Login">@localizer["Iniciar Sesion"]</a>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+}
